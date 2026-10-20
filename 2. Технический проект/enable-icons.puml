@@ -1,0 +1,15 @@
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+!define DEVICONS1 https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define DEVICONS2 https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons2
+
+!include DEVICONS1/redis.puml
+!include DEVICONS2/csharp.puml
+!include DEVICONS2/postgresql.puml
+
+rectangle "Dependencies" as dependencies {
+    ContainerDb(postgres, "db booking sceheme", "PostgreSQL", "Хранит информацию о пользователях, бронированиях, отзывах и другую информацию", $sprite="postgresql")
+    ContainerDb(redis, "cache booking scheme", "Redis", "Кеширует информацию о поисковых операциях", $sprite="redis")
+}
+
